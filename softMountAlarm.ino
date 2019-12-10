@@ -37,6 +37,7 @@ void setup() {
   pinMode(resetRelay, OUTPUT);
   pinMode(trig, OUTPUT);
   pinMode(ech, INPUT);
+  
   pinMode(buzzer, OUTPUT);
   
   Serial.begin(9600);
@@ -245,7 +246,6 @@ void setDistance(){
 }
 
 void activateAlarm(){
-  tone(buzzer, 1000, 1000);
   /*//this isnt working currently, may change to sound a piezo or something
   //in final design, could sent data to a pi or another arduino in order to send GET reqs to thingpeak/ifttt
 	wifly.sendCommand("set ip proto 18\r");
@@ -255,6 +255,7 @@ void activateAlarm(){
 	wifly.sendCommand("open\r");
   delay(100);
 	wiflyUart.print("GET /trigger/sonarTrigger/with/key/d3NDjW2G31zrSyHeq73p-5\n\n");*/
+ tone(buzzer, 1000, 1000);
 }
 
 void toggleRelay(){
