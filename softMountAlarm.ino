@@ -37,7 +37,6 @@ void setup() {
   pinMode(resetRelay, OUTPUT);
   pinMode(trig, OUTPUT);
   pinMode(ech, INPUT);
-  
   pinMode(buzzer, OUTPUT);
   
   Serial.begin(9600);
@@ -105,7 +104,7 @@ void loop() {
   					break;
   				case 2:
   					distanceSetThisRound = true;
-  					Serial.println("distnace toggle");
+  					Serial.println("distance toggle");
   					break;
   				case 3:
   					toggleRelayThisRound = true;
@@ -193,11 +192,11 @@ void loop() {
         delay(2500);
         long t = pulse();
         if(t-threshold > distance || t+threshold < distance){
-          Serial.println("out 1, valuse: " + (String)t + " " + (String)threshold + " " + (String)distance);
+          Serial.println("out 1, values: " + (String)t + " " + (String)threshold + " " + (String)distance);
           delay(2500);
           t = pulse();
           if(t-threshold > distance || t+threshold < distance){
-            Serial.println("out 2, valuse: " + (String)t + " " + (String)threshold + " " + (String)distance);
+            Serial.println("out 2, values: " + (String)t + " " + (String)threshold + " " + (String)distance);
             if(motionControlRelay){
                 motionDelayLast = millis();
                 if (!relayOn){
@@ -228,8 +227,6 @@ void toggleAlarm(){
 
 void setDistance(){
 	Serial.println("old value: " + (String)distance + ", setting new distance value...");
-  //pulse without recording to "clean" sensor - sometime the first value is way out 
-  //pulse();
 	delay(1000);
 	long first = pulse();
 	delay(1000);
