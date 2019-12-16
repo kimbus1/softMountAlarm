@@ -243,15 +243,11 @@ void setDistance(){
 }
 
 void activateAlarm(){
-  /*//this isnt working currently, may change to sound a piezo or something
-  //in final design, could sent data to a pi or another arduino in order to send GET reqs to thingpeak/ifttt
-	wifly.sendCommand("set ip proto 18\r");
-  delay(100);
-  wifly.sendCommand("set dns name maker.ifttt.com\r"); // name of the webserver we want to connect to
-  delay(100);
-	wifly.sendCommand("open\r");
-  delay(100);
-	wiflyUart.print("GET /trigger/sonarTrigger/with/key/d3NDjW2G31zrSyHeq73p-5\n\n");*/
+  //the code to send the data to either IFTTT via a get request to "maker.ifttt.com/trigger/sonarTrigger/with/key/d3NDjW2G31zrSyHeq73p-5"
+  //or to thingspeak via a get request to "api.thingspeak.com/update?api_key=QAWJZPUKD4G1LLVA&field1=1"
+  //would go here if the wifi sheild had the capability of doing so, the code to make a different arduino send the data would also go here
+  //once the data had been sent, I could then alert the user via email when the alarm had been triggered along with whatever else they wanted
+  //however since this isnt working, I will instead sound a piezo, as shown below
  tone(buzzer, 1000, 1000);
 }
 
